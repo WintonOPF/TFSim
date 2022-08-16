@@ -36,6 +36,8 @@ public:
     void value_check();
     void check_conflict();
 
+    bool rob_is_empty();
+
 private:
     struct rob_slot{
         unsigned int entry;
@@ -48,7 +50,9 @@ private:
         bool prediction;
         int vj,vk;
         unsigned int qj,qk;
-        unsigned int instr_pos;
+        unsigned int instr_pos; // pos gui
+
+        unsigned int pc; // pos do pc (original)
         rob_slot(unsigned int id)
         {
             busy = ready = false;

@@ -1,0 +1,3 @@
+/home/winton/Documentos/TFSim/nana/built/CMakeFiles/rebuild_cache.dir
+/home/winton/Documentos/TFSim/nana/built/CMakeFiles/edit_cache.dir
+/home/winton/Documentos/TFSim/nana/built/CMakeFiles/nana.dir

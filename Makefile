@@ -2,11 +2,11 @@ EXEC_NAME = tfsim
 
 ROOT=$(shell pwd)
 # edit here to your systemC installation folder
-SYSTEMC_LIB=/home/vitor/Documentos/TCC/projeto/systemc-2.3.3/build/src
-SYSTEMC_INCLUDE=/home/vitor/Documentos/TCC/projeto/systemc-2.3.3/src
+SYSTEMC_LIB=/home/winton/Documentos/TFSim/systemc-2.3.3/build/src
+SYSTEMC_INCLUDE=/home/winton/Documentos/TFSim/systemc-2.3.3/src
 # edit here to your nana installation folder
-NANA_INCLUDE=/home/vitor/Documentos/TCC/projeto/nana/include
-NANA_LIB=/home/vitor/Documentos/TCC/projeto/nana/built
+NANA_INCLUDE=/home/winton/Documentos/TFSim/nana/include
+NANA_LIB=/home/winton/Documentos/TFSim/nana/built
 
 CXX = g++
 INCLUDEDIR = include/

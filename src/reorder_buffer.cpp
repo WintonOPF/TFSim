@@ -486,3 +486,15 @@ int reorder_buffer::instruction_pos_finder(string p)
     }
     return -1;
 }
+
+bool reorder_buffer::rob_is_empty(){
+    unsigned int i = tem;
+
+    while(i--){
+        if(prts[i]->busy){
+            return false;
+        }
+    }
+    
+    return true;
+}

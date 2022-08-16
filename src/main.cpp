@@ -39,7 +39,7 @@ int sc_main(int argc, char *argv[])
     listbox instruct(fm);
     listbox rob(fm);
     menubar mnbar(fm);
-    button botao(fm);
+    button start(fm);
     button clock_control(fm);
     button exit(fm);
     group clock_group(fm);
@@ -52,11 +52,11 @@ int sc_main(int argc, char *argv[])
     // Novas instrucoes devem ser inseridas manualmente aqui
     map<string,int> instruct_time{{"DADD",4},{"DADDI",4},{"DSUB",6},{"DSUBI",6},{"DMUL",10},{"DDIV",16},{"MEM",2}};
     top top1("top");
-    botao.caption("START");
+    start.caption("START");
     clock_control.caption("NEXT CYCLE");
     exit.caption("EXIT");
     plc["rst"] << table;
-    plc["btns"] << botao << clock_control << exit;
+    plc["btns"] << start << clock_control << exit;
     plc["memor"] << memory;
     plc["regs"] << reg;
     plc["rob"] << rob;
@@ -578,11 +578,11 @@ int sc_main(int argc, char *argv[])
         }
     }
     clock_control.enabled(false);
-    botao.events().click([&]
+    start.events().click([&]
     {
         if(fila)
         {
-            botao.enabled(false);
+            start.enabled(false);
             clock_control.enabled(true);
             //Desativa os menus apos inicio da execucao
             op.enabled(0,false);
@@ -609,6 +609,19 @@ int sc_main(int argc, char *argv[])
         if(sc_is_running())
             sc_start();
     });
+
+    btn_run_all.events().click([&]
+    {
+        while( !( top1.get_queue().queue_is_empty() && top1.get_rob().rob_is_empty() ) ) {
+            if(sc_is_running()){
+                sc_start();
+            }
+        }
+         //depois aqui tem a continuaçao para colocar arquivo de saida.
+    });
+
+
+
     exit.events().click([]
     {
         sc_stop();
@@ -618,3 +631,4 @@ int sc_main(int argc, char *argv[])
     exec();
     return 0;
 }
+
